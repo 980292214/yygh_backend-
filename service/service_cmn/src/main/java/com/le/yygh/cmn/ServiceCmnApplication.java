@@ -1,4 +1,4 @@
-package com.le.yygh.hosp;
+package com.le.yygh.cmn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
  * @version 1.0
  */
 @SpringBootApplication
-@ComponentScan(basePackages = "com.le")
-public class ServiceHospApplication {
+@ComponentScan("com.le")
+public class ServiceCmnApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ServiceHospApplication.class,args);
+        SpringApplication.run(ServiceCmnApplication.class,args);
     }
 }
