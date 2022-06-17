@@ -18,7 +18,7 @@ import java.util.Date;
  * @author qy
  */
 @Data
-@ApiModel(description = "Patient")
+@ApiModel(description = "Patient")//就诊人
 @TableName("patient")
 public class Patient extends BaseEntity {
 	

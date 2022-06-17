@@ -20,6 +20,7 @@ public class BookingScheduleRuleVo {
 	
 	@ApiModelProperty(value = "可预约日期")
 	@JsonFormat(pattern = "yyyy-MM-dd")
+	//@JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
 	private Date workDate;
 
 	@ApiModelProperty(value = "可预约日期")
@@ -27,15 +28,15 @@ public class BookingScheduleRuleVo {
 	private Date workDateMd; //方便页面使用
 
 	@ApiModelProperty(value = "周几")
-	private String dayOfWeek;
+	private String dayOfWeek;//转换后的周几
 
 	@ApiModelProperty(value = "就诊医生人数")
 	private Integer docCount;
 
-	@ApiModelProperty(value = "科室可预约数")
+	@ApiModelProperty(value = "科室已预约数(原可预约数)")
 	private Integer reservedNumber;
 
-	@ApiModelProperty(value = "科室剩余预约数")
+	@ApiModelProperty(value = "科室剩余可预约数")
 	private Integer availableNumber;
 
 	@ApiModelProperty(value = "状态 0：正常 1：即将放号 -1：当天已停止挂号")

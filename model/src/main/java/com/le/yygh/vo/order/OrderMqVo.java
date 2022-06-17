@@ -9,8 +9,8 @@ import lombok.Data;
 @ApiModel(description = "OrderMqVo")
 public class OrderMqVo {
 
-	@ApiModelProperty(value = "可预约数")
-	private Integer reservedNumber;
+	@ApiModelProperty(value = "可（总）预约数")
+	private Integer reservedNumber;//总预约数？
 
 	@ApiModelProperty(value = "剩余预约数")
 	private Integer availableNumber;

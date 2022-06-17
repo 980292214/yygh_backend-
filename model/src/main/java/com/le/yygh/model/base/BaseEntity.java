@@ -36,5 +36,8 @@ public class BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "其他参数")
     @TableField(exist = false)
+    //获取就诊人信息时，需要跨域访问cmn模块，根据证件类型和地区的value查询对应的名称，然后封装在map中
+    //根据数据库的value转成相应的name（如用户状态）时也会用到，方便前端显示（交给前端来做更好？）
+    //order模块根据订单id查询订单详情、条件查询订单列表带分页，把状态码转成文字会用到
     private Map<String,Object> param = new HashMap<>();
 }

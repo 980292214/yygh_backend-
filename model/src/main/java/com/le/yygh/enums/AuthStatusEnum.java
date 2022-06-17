@@ -16,7 +16,7 @@ public enum AuthStatusEnum {
         this.name = name;
     }
 
-    public static String getStatusNameByStatus(Integer status) {
+    public static String getStatusNameByStatus(Integer status) {//??未
         AuthStatusEnum arrObj[] = AuthStatusEnum.values();
         for (AuthStatusEnum obj : arrObj) {
             if (status.intValue() == obj.getStatus().intValue()) {

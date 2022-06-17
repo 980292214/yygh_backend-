@@ -55,7 +55,7 @@ public class Dict {
 
     @ApiModelProperty(value = "值")
     @TableField("value")
-    private String value;
+    private String value;//医院等级
 
     @ApiModelProperty(value = "编码")
     @TableField("dict_code")
@@ -63,6 +63,6 @@ public class Dict {
 
     @ApiModelProperty(value = "是否包含子节点")
     @TableField(exist = false)
-    private boolean hasChildren;//配合 ElementUI 才使用的
+    private boolean hasChildren;//配合 ElementUI 处显示树形数据；显示所有省份两处用到
 
 }

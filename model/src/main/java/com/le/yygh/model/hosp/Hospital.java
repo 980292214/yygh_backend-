@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Data
 @ApiModel(description = "Hospital")
+//是spring Data mongodb提供的一个注解。@Document注解指定了这个模型类型所对应的集合名称。标明由mongo来维护该表。
 @Document("Hospital")
 public class Hospital extends BaseMongoEntity {
 	

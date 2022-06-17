@@ -13,7 +13,10 @@ public class OrderQueryVo {
 
 	@ApiModelProperty(value = "会员id")
 	private Long userId;
-	
+
+	@ApiModelProperty(value = "会员认证姓名")//新加的，后台前端模糊查询使用 5.3
+	private String userName;
+
 	@ApiModelProperty(value = "订单交易号")
 	private String outTradeNo;
 

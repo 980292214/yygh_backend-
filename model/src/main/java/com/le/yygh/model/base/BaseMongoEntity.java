@@ -32,5 +32,7 @@ public class BaseMongoEntity implements Serializable {
 
     @ApiModelProperty(value = "其他参数")
     @Transient //被该注解标注的，将不会被录入到数据库中。只作为普通的javaBean属性
+    //1.用于跨域调用时 存放数据，如 service_hosp 调用 service_cmn 获取 医院等级 todo
+    //2.用于查询排班详情信息的时候 存放医院名称、科室名称、周几等信息，因为这些值在 Schedule 里没有
     private Map<String,Object> param = new HashMap<>();
 }

@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 
-@Api(description = "数据字典接口")
+@Api("数据字典接口")
 @RestController
 @RequestMapping("/admin/cmn/dict")
-@CrossOrigin
+//@CrossOrigin
 public class DictController {
 
     @Autowired
@@ -51,18 +51,18 @@ public class DictController {
         return Result.ok(list);
     }
 
-    //根据dictcode和value查询
-    @GetMapping("getName/{dictCode}/{value}")
+    //根据dictcode和value查询 医院等级 ，供 service_hosp 跨域调用;查 id 的话医院那边对应不上 能否优化只查 value  ？
+    @GetMapping("getName/{dictCode}/{value}")//空指针异常了
     public String getName(@PathVariable String dictCode,
                           @PathVariable String value) {
         String dictName = dictService.getDictName(dictCode,value);
         return dictName;
     }
 
-    //根据value查询
+    //根据value查询 省市区 信息，供 service_hosp 跨域调用
     @GetMapping("getName/{value}")
     public String getName(@PathVariable String value) {
-        String dictName = dictService.getDictName("",value);
+        String dictName = dictService.getDictName("",value);//空指针异常
         return dictName;
     }
 }

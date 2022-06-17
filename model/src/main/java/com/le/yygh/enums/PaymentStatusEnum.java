@@ -1,7 +1,7 @@
 package com.le.yygh.enums;
 
 public enum PaymentStatusEnum {
-    UNPAID(1,"支付中"),
+    UNPAID(1,"支付中"),//支付状态
     PAID(2,"已支付");
     //REFUND(-1,"已退款");
 

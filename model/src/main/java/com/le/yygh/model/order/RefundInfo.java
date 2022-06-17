@@ -38,7 +38,7 @@ public class RefundInfo extends BaseEntity {
 
 	@ApiModelProperty(value = "交易编号")
 	@TableField("trade_no")
-	private String tradeNo;
+	private String tradeNo;//退款成功后才有
 
 	@ApiModelProperty(value = "退款金额")
 	@TableField("total_amount")

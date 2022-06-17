@@ -98,10 +98,10 @@ public class OrderInfo extends BaseEntity {
 	@TableField("amount")
 	private BigDecimal amount;
 
-	@ApiModelProperty(value = "退号时间")
+	@ApiModelProperty(value = "（可）退号时间?")
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm")
 	@TableField("quit_time")
-	private Date quitTime;
+	private Date quitTime;//（可）退号时间?还是自己手动设置
 
 	@ApiModelProperty(value = "订单状态")
 	@TableField("order_status")

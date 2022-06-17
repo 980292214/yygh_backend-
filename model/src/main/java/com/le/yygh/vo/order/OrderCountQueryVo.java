@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
-@ApiModel(description = "OrderCountQueryVo")
+@ApiModel(description = "OrderCountQueryVo")//预约统计用的
 public class OrderCountQueryVo {
 	
 	@ApiModelProperty(value = "医院编号")

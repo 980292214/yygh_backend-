@@ -17,7 +17,7 @@ public class DepartmentVo {
 	private String depname;
 
 	@ApiModelProperty(value = "下级节点")
-	private List<DepartmentVo> children;
+	private List<DepartmentVo> children;//大科室里还有小科室
 
 }
 

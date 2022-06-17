@@ -3,7 +3,6 @@ package com.le.yygh.hosp.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.le.yygh.common.excption.YyghException;
 import com.le.yygh.common.result.Result;
 import com.le.yygh.common.utils.MD5;
 import com.le.yygh.hosp.service.HospitalSetService;
@@ -25,7 +24,7 @@ import java.util.Random;
 //在Swagger页面上显示中文提示;修饰整个类，描述Controller的作用
 @Api(tags = "医院设置管理")
 @RestController
-@CrossOrigin
+//@CrossOrigin 有网关了
 @RequestMapping("/admin/hosp/hospitalSet")
 public class HospitalSetController {
     @Autowired
@@ -142,7 +141,14 @@ public class HospitalSetController {
         HospitalSet hospitalSet = hospitalSetService.getById(id);
         String signKey = hospitalSet.getSignKey();
         String hoscode = hospitalSet.getHoscode();
-        //TODO 发送短信
+        //发送短信
         return Result.ok();
     }
+
+//    //更新医院设置锁定功能 自己加 未5.10
+//    @GetMapping("getStatusByhoscode/{hoscode}")
+//    public Integer getStatusByhoscode(@PathVariable String hoscode){
+//        Integer statusByhoscode = hospitalSetService.getStatusByhoscode(hoscode);
+//        return statusByhoscode;//优化统一返回结果??
+//    }
 }

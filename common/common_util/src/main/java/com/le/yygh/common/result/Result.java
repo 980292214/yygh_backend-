@@ -1,5 +1,6 @@
 package com.le.yygh.common.result;
 
+import com.le.yygh.common.exception.YyghException;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,9 +21,10 @@ public class Result<T> {
     @ApiModelProperty(value = "返回数据")
     private T data;//返回数据
 
-    public Result(){}
+    public Result() {
+    }
 
-    protected static <T> Result<T> build(T data) {//
+    protected static <T> Result<T> build(T data) {//基础5.26
         Result<T> result = new Result<T>();
         if (data != null)
             result.setData(data);
@@ -32,9 +34,12 @@ public class Result<T> {
     public static <T> Result<T> build(T body, ResultCodeEnum resultCodeEnum) {//
         Result<T> result = build(body);
         result.setCode(resultCodeEnum.getCode());
-        result.setMessage(resultCodeEnum.getMessage());
+        result.setMessage(resultCodeEnum.getMessage());//data和message不一样
+        //result.setMessage((String) body);//会报错 前台错误框没文字5.26
+        System.out.println("-+-+-T build 返回的result:" + result);
         return result;
     }
+
 
     public static <T> Result<T> build(Integer code, String message) {
         Result<T> result = build(null);
@@ -43,48 +48,53 @@ public class Result<T> {
         return result;
     }
 
-    public static<T> Result<T> ok(){
+    public static <T> Result<T> ok() {
         return Result.ok(null);
     }
 
     /**
      * 操作成功
+     *
      * @param data
      * @param <T>
      * @return
      */
-    public static<T> Result<T> ok(T data){
+    public static <T> Result<T> ok(T data) {
         Result<T> result = build(data);
         return build(data, ResultCodeEnum.SUCCESS);
     }
 
-    public static<T> Result<T> fail(){
+    public static <T> Result<T> fail() {
         return Result.fail(null);
     }
 
     /**
      * 操作失败
+     *
      * @param data
      * @param <T>
      * @return
      */
-    public static<T> Result<T> fail(T data){
+    public static <T> Result<T> fail(T data) {//原来的,固定都是ResultCodeEnum.FAIL
         Result<T> result = build(data);//
+        System.out.println("-+-+- T 失败后获取到的异常信息:" + data);
         return build(data, ResultCodeEnum.FAIL);
     }
 
-    public Result<T> message(String msg){
+
+
+    public Result<T> message(String msg) {
         this.setMessage(msg);
         return this;
     }
 
-    public Result<T> code(Integer code){
+    public Result<T> code(Integer code) {
         this.setCode(code);
         return this;
     }
 
     public boolean isOk() {
-        if(this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue()) {
+        if (this.getCode().intValue() == ResultCodeEnum.SUCCESS.getCode().intValue()) {
             return true;
         }
         return false;

@@ -38,7 +38,7 @@ public class PaymentInfo extends BaseEntity {
 
 	@ApiModelProperty(value = "交易编号")
 	@TableField("trade_no")
-	private String tradeNo;
+	private String tradeNo;//付款成功才有
 
 	@ApiModelProperty(value = "支付金额")
 	@TableField("total_amount")

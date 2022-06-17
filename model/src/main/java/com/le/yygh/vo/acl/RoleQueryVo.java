@@ -12,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author qy
- * @since 2019-11-08
+ * @since
  */
 @Data
 @ApiModel(description = "角色查询实体")

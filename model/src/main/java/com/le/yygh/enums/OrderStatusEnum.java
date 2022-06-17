@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public enum OrderStatusEnum {
-    UNPAID(0,"预约成功，待支付"),
+    UNPAID(0,"预约成功，待支付"),//订单状态
     PAID(1,"已支付" ),
     GET_NUMBER(2,"已取号" ),
     CANCLE(-1,"取消预约"),
@@ -15,7 +15,7 @@ public enum OrderStatusEnum {
     private Integer status;
     private String comment ;
 
-    public static String getStatusNameByStatus(Integer status) {
+    public static String getStatusNameByStatus(Integer status) {//把状态码转成文字
         OrderStatusEnum arrObj[] = OrderStatusEnum.values();
         for (OrderStatusEnum obj : arrObj) {
             if (status.intValue() == obj.getStatus().intValue()) {
